@@ -8,27 +8,32 @@
   </div>
 
   <!-- Navigation Menu -->
-  <mat-nav-list class="navigation-list">
-    <mat-list-item 
-      *ngFor="let item of navItems" 
-      class="nav-item"
-      [class.active]="isActive(item.route)"
-      (click)="navigate(item.route)">
-      
-      <mat-icon matListIcon class="nav-icon">{{ item.icon }}</mat-icon>
-      <span matLine class="nav-label">{{ item.label }}</span>
-      
-      <!-- Active indicator -->
-      <div class="active-indicator" *ngIf="isActive(item.route)"></div>
-    </mat-list-item>
-  </mat-nav-list>
+  <div class="navigation-list">
+    <!-- Main Navigation Section -->
+   
+    
+    <mat-nav-list>
+      <mat-list-item 
+        *ngFor="let item of navItems" 
+        class="nav-item"
+        [class.active]="isActive(item.route)"
+        (click)="navigate(item.route)">
+        
+        <mat-icon matListIcon class="nav-icon">{{ item.icon }}</mat-icon>
+        <span matLine class="nav-label">{{ item.label }}</span>
+        
+        <!-- Badge for some items -->
+        <span class="nav-badge new" *ngIf="item.label === 'Dashboard'">NEW</span>
+        <span class="nav-badge count" *ngIf="item.label === 'Trip Management'">5</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
 
   <!-- Footer Section -->
   <div class="sidebar-footer">
-    <mat-divider></mat-divider>
     <div class="footer-content">
-      <small class="version-text">Version 1.0.0</small>
-      <small class="copyright-text">© 2024 Transit Admin</small>
+      <div class="version-text">V 1.0.0</div>
+      <div class="copyright-text">© TransitMapUI</div>
     </div>
   </div>
 </div> 

@@ -1,12 +1,15 @@
 .sidenav-container {
-  height: 100vh;
-  background-color: #f5f5f5;
+  height: calc(100vh - 70px);
+  margin-top: 70px;
+  background: var(--bg-secondary);
 }
 
 .sidenav {
   width: 280px;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-xl);
   z-index: 999;
+  border-right: 1px solid var(--border-primary);
+  background: var(--bg-card);
   
   @media (max-width: 768px) {
     width: 100%;
@@ -17,63 +20,471 @@
 .main-content {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
+  background: var(--bg-secondary);
+  margin-left: 280px;
+  margin-top: 70px;
+  min-height: calc(100vh - 70px);
+  
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+  }
+  
+  @media (max-width: 480px) {
+    margin-top: 56px;
+    min-height: calc(100vh - 56px);
+  }
 }
 
 .content-wrapper {
   flex: 1;
-  padding: 80px 24px 24px 24px; // Top padding for fixed header
+  padding: var(--spacing-lg);
   overflow-y: auto;
-  background-color: #f5f5f5;
+  background: var(--bg-secondary);
   
   @media (max-width: 768px) {
-    padding: 80px 16px 16px 16px;
+    padding: var(--spacing-md);
   }
   
   @media (max-width: 480px) {
-    padding: 80px 12px 12px 12px;
+    padding: var(--spacing-sm);
   }
 }
 
-// Override Material sidenav styles
+// Vuesy Material sidenav overrides
 ::ng-deep {
   .mat-sidenav-container {
-    background-color: #f5f5f5 !important;
+    background: var(--bg-secondary) !important;
   }
   
   .mat-sidenav-backdrop {
-    background-color: rgba(0, 0, 0, 0.6) !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(4px) !important;
+    margin-top: 70px !important;
   }
   
   .mat-sidenav {
-    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24) !important;
+    background: var(--bg-card) !important;
+    border-right: 1px solid var(--border-primary) !important;
+    box-shadow: var(--shadow-xl) !important;
+  }
+  
+  .mat-sidenav-content {
+    background: var(--bg-secondary) !important;
   }
 }
 
-// Loading state styles
+// Vuesy page structure
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-header {
+  margin-bottom: var(--spacing-2xl);
+  
+  .page-title {
+    color: var(--text-primary);
+    font-size: 28px;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+  
+  .page-subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .page-description {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    font-size: 14px;
+    
+    .breadcrumb-item {
+      color: var(--text-muted);
+      text-decoration: none;
+      
+      &.active {
+        color: var(--text-primary);
+        font-weight: var(--font-weight-medium);
+      }
+      
+      &:hover:not(.active) {
+        color: var(--primary-600);
+      }
+    }
+    
+    .breadcrumb-separator {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+  }
+}
+
+// Vuesy stats section
+.stats-section {
+  margin-bottom: var(--spacing-2xl);
+  
+  .row {
+    margin: 0 -12px;
+  }
+  
+  .col {
+    padding: 0 12px;
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+// Enhanced Vuesy content cards
+.content-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  overflow: hidden;
+  
+  &:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  
+  .card-header {
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-primary);
+    background: var(--bg-surface);
+    
+    h3, h4, h5 {
+      margin: 0;
+      color: var(--text-primary);
+      font-weight: var(--font-weight-semibold);
+    }
+    
+    .card-subtitle {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-top: var(--spacing-xs);
+    }
+    
+    .card-actions {
+      display: flex;
+      gap: var(--spacing-sm);
+      margin-left: auto;
+    }
+  }
+  
+  .card-body {
+    padding: var(--spacing-lg);
+    
+    p {
+      margin: 0 0 var(--spacing-md) 0;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  .card-footer {
+    padding: var(--spacing-lg);
+    border-top: 1px solid var(--border-primary);
+    background: var(--bg-hover);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+  }
+}
+
+// Vuesy dashboard grid
+.dashboard-grid {
+  display: grid;
+  gap: var(--spacing-lg);
+  
+  &.cols-1 { grid-template-columns: 1fr; }
+  &.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  &.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  &.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  
+  &.auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  
+  &.auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+// Enhanced loading states
 .content-loading {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 200px;
+  color: var(--text-secondary);
+  gap: var(--spacing-md);
+  
+  .loading-text {
+    font-size: 14px;
+    font-weight: var(--font-weight-medium);
+    color: var(--text-muted);
+  }
+  
+  .mat-progress-spinner circle {
+    stroke: var(--primary-600);
+  }
 }
 
-// Custom scrollbar for content area
+// Vuesy scrollbar
 .content-wrapper::-webkit-scrollbar {
   width: 6px;
 }
 
 .content-wrapper::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 3px;
+  background: var(--bg-tertiary);
 }
 
 .content-wrapper::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: var(--border-primary);
   border-radius: 3px;
+  transition: var(--transition-fast);
   
   &:hover {
-    background: #a1a1a1;
+    background: var(--primary-600);
+  }
+}
+
+// Action buttons container
+.action-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+}
+
+// Quick stats row (Vuesy style)
+.quick-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+  
+  .stat-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: var(--transition);
+    
+    &:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--spacing-md) auto;
+      font-size: 24px;
+      
+      &.purple {
+        background: var(--bg-purple);
+        color: var(--text-white);
+      }
+      
+      &.success {
+        background: linear-gradient(135deg, var(--success), #20c997);
+        color: var(--text-white);
+      }
+      
+      &.warning {
+        background: linear-gradient(135deg, var(--warning), #fd7e14);
+        color: var(--text-white);
+      }
+      
+      &.info {
+        background: linear-gradient(135deg, var(--info), #6f42c1);
+        color: var(--text-white);
+      }
+    }
+    
+    .stat-number {
+      font-size: 24px;
+      font-weight: var(--font-weight-bold);
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: var(--font-weight-medium);
+    }
+    
+    .stat-change {
+      font-size: 12px;
+      margin-top: var(--spacing-xs);
+      
+      &.positive {
+        color: var(--success);
+      }
+      
+      &.negative {
+        color: var(--danger);
+      }
+    }
+  }
+}
+
+// Charts container
+.charts-section {
+  margin-bottom: var(--spacing-2xl);
+  
+  .chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-lg);
+      
+      h4 {
+        margin: 0;
+        color: var(--text-primary);
+      }
+      
+      .chart-controls {
+        display: flex;
+        gap: var(--spacing-sm);
+      }
+    }
+    
+    .chart-placeholder {
+      height: 300px;
+      background: var(--bg-hover);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 992px) {
+  .dashboard-grid {
+    &.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    &.cols-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  .quick-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sidenav-container {
+    height: calc(100vh - 60px);
+    margin-top: 60px;
+  }
+  
+  .page-header {
+    .page-title {
+      font-size: 24px;
+    }
+  }
+  
+  .dashboard-grid {
+    gap: var(--spacing-md);
+    
+    &.cols-2,
+    &.cols-3,
+    &.cols-4 {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .quick-stats {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .content-card {
+    .card-header,
+    .card-body,
+    .card-footer {
+      padding: var(--spacing-md);
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .sidenav-container {
+    height: calc(100vh - 56px);
+    margin-top: 56px;
+  }
+  
+  .page-header {
+    .page-title {
+      font-size: 20px;
+    }
+    
+    .breadcrumb {
+      font-size: 12px;
+    }
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    
+    .btn {
+      justify-content: center;
+    }
+  }
+  
+  .charts-section {
+    .chart-card {
+      padding: var(--spacing-md);
+      
+      .chart-placeholder {
+        height: 200px;
+      }
+    }
   }
 } 

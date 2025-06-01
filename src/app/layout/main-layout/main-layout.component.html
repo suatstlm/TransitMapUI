@@ -1,3 +1,7 @@
+<!-- Header - Outside sidenav container -->
+<app-header (menuToggle)="onMenuToggle()"></app-header>
+
+<!-- Sidenav Container - Below header -->
 <mat-sidenav-container class="sidenav-container" fullscreen>
   <!-- Sidebar -->
   <mat-sidenav 
@@ -12,9 +16,6 @@
   
   <!-- Main Content Area -->
   <mat-sidenav-content class="main-content">
-    <!-- Header -->
-    <app-header (menuToggle)="onMenuToggle()"></app-header>
-    
     <!-- Page Content -->
     <div class="content-wrapper">
       <router-outlet></router-outlet>

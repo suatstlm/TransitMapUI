@@ -28,7 +28,7 @@ export class SidebarComponent {
     },
     {
       label: 'Route Management',
-      icon: 'route',
+      icon: 'alt_route',
       route: '/routes'
     },
     {
@@ -38,12 +38,12 @@ export class SidebarComponent {
     },
     {
       label: 'Service Calendar',
-      icon: 'calendar_today',
+      icon: 'event',
       route: '/calendar'
     },
     {
       label: 'GTFS Export',
-      icon: 'download',
+      icon: 'cloud_download',
       route: '/gtfs'
     }
   ];

@@ -1,4 +1,3 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
@@ -9,17 +8,78 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$TransitMapUI-primary: mat.define-palette(mat.$indigo-palette);
-$TransitMapUI-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// Vuesy-inspired Purple Theme Palette
+$primary-palette: (
+  50: #f3f1ff,
+  100: #e6e2ff,
+  200: #d1cbff,
+  300: #b8adff,
+  400: #9b8aff,
+  500: #7c6aef,
+  600: #6b5ce7,
+  700: #5b4fdb,
+  800: #4c42c7,
+  900: #3d35a5,
+  A100: #c4b8ff,
+  A200: #a394ff,
+  A400: #8470ff,
+  A700: #754cff,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
 
-// The warn palette is optional (defaults to red).
+$accent-palette: (
+  50: #fafafa,
+  100: #f5f5f5,
+  200: #eeeeee,
+  300: #e0e0e0,
+  400: #bdbdbd,
+  500: #9e9e9e,
+  600: #757575,
+  700: #616161,
+  800: #424242,
+  900: #212121,
+  A100: #d5d5d5,
+  A200: #aaaaaa,
+  A400: #303030,
+  A700: #616161,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: white,
+    A700: white,
+  )
+);
+
+$TransitMapUI-primary: mat.define-palette($primary-palette);
+$TransitMapUI-accent: mat.define-palette($accent-palette);
 $TransitMapUI-warn: mat.define-palette(mat.$red-palette);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
+// Create Vuesy-inspired Light Theme
 $TransitMapUI-theme: mat.define-light-theme((
   color: (
     primary: $TransitMapUI-primary,
@@ -37,3 +97,446 @@ $TransitMapUI-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Vuesy CSS Variables
+:root {
+  // Primary Purple Colors (Vuesy-inspired)
+  --primary-50: #f3f1ff;
+  --primary-100: #e6e2ff;
+  --primary-200: #d1cbff;
+  --primary-300: #b8adff;
+  --primary-400: #9b8aff;
+  --primary-500: #7c6aef;
+  --primary-600: #6b5ce7;
+  --primary-700: #5b4fdb;
+  --primary-800: #4c42c7;
+  --primary-900: #3d35a5;
+  
+  // Background Colors - Vuesy Style
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f1f3f4;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-hover: #f8f9fa;
+  --bg-purple: linear-gradient(135deg, #6b5ce7 0%, #5b4fdb 100%);
+  --bg-purple-light: #f3f1ff;
+  
+  // Text Colors
+  --text-primary: #2c3e50;
+  --text-secondary: #6c757d;
+  --text-tertiary: #8795a1;
+  --text-muted: #adb5bd;
+  --text-white: #ffffff;
+  --text-purple: #6b5ce7;
+  
+  // Border Colors
+  --border-primary: #e9ecef;
+  --border-secondary: #f1f3f4;
+  --border-light: #f8f9fa;
+  --border-purple: #6b5ce7;
+  
+  // Status Colors - Vuesy Style
+  --success: #28a745;
+  --success-light: #d1ecf1;
+  --warning: #ffc107;
+  --warning-light: #fff3cd;
+  --danger: #dc3545;
+  --danger-light: #f8d7da;
+  --info: #17a2b8;
+  --info-light: #d1ecf1;
+  
+  // Shadows - Vuesy Style
+  --shadow-sm: 0 2px 4px rgba(0,0,0,.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,.07);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,.1);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,.15);
+  --shadow-purple: 0 8px 25px rgba(107, 92, 231, 0.15);
+  
+  // Border Radius
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  
+  // Spacing
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  
+  // Typography
+  --font-family: 'Poppins', 'Segoe UI', 'Arial', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  // Transitions
+  --transition: 0.3s ease-in-out;
+  --transition-fast: 0.2s ease-in-out;
+}
+
+// Global Reset & Base Styles
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+// Vuesy Typography
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+h1 { font-size: 2.5rem; font-weight: var(--font-weight-bold); }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.875rem; }
+
+// Text Utilities
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-white { color: var(--text-white); }
+.text-purple { color: var(--text-purple); }
+.text-success { color: var(--success); }
+.text-warning { color: var(--warning); }
+.text-danger { color: var(--danger); }
+.text-info { color: var(--info); }
+
+.font-weight-normal { font-weight: var(--font-weight-normal); }
+.font-weight-medium { font-weight: var(--font-weight-medium); }
+.font-weight-semibold { font-weight: var(--font-weight-semibold); }
+.font-weight-bold { font-weight: var(--font-weight-bold); }
+
+// Vuesy Card System
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  
+  &:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  
+  .card-header {
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-primary);
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    
+    h3, h4, h5 {
+      margin: 0;
+      color: var(--text-primary);
+    }
+  }
+  
+  .card-body {
+    padding: var(--spacing-lg);
+  }
+  
+  .card-footer {
+    padding: var(--spacing-lg);
+    border-top: 1px solid var(--border-primary);
+    background: var(--bg-hover);
+  }
+}
+
+// Vuesy Stats Cards
+.stats-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+  
+  .stats-number {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .stats-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  &.purple {
+    background: var(--bg-purple);
+    color: var(--text-white);
+    border: none;
+    
+    .stats-number,
+    .stats-label {
+      color: var(--text-white);
+    }
+  }
+  
+  &.success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: var(--text-white);
+    border: none;
+    
+    .stats-number,
+    .stats-label {
+      color: var(--text-white);
+    }
+  }
+  
+  &.warning {
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+    color: var(--text-white);
+    border: none;
+    
+    .stats-number,
+    .stats-label {
+      color: var(--text-white);
+    }
+  }
+  
+  &.info {
+    background: linear-gradient(135deg, #17a2b8, #6f42c1);
+    color: var(--text-white);
+    border: none;
+    
+    .stats-number,
+    .stats-label {
+      color: var(--text-white);
+    }
+  }
+}
+
+// Layout Utilities
+.d-flex { display: flex; }
+.flex-column { flex-direction: column; }
+.align-items-center { align-items: center; }
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-around { justify-content: space-around; }
+
+// Vuesy Grid System
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+}
+
+.col {
+  flex: 1;
+  padding: 0 12px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.col-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+.col-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+.col-3 { flex: 0 0 25%; max-width: 25%; }
+.col-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+.col-6 { flex: 0 0 50%; max-width: 50%; }
+.col-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+
+// Vuesy Buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  
+  &.btn-primary {
+    background: var(--bg-purple);
+    color: var(--text-white);
+    border-color: var(--primary-600);
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-purple);
+    }
+  }
+  
+  &.btn-secondary {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-color: var(--border-primary);
+    
+    &:hover {
+      background: var(--bg-hover);
+      border-color: var(--primary-600);
+    }
+  }
+  
+  &.btn-success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: var(--text-white);
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 25px rgba(40, 167, 69, 0.15);
+    }
+  }
+  
+  &.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  
+  &.btn-lg {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
+
+// Vuesy Badges
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  &.badge-primary { background: var(--primary-100); color: var(--primary-700); }
+  &.badge-success { background: var(--success-light); color: var(--success); }
+  &.badge-warning { background: var(--warning-light); color: var(--warning); }
+  &.badge-danger { background: var(--danger-light); color: var(--danger); }
+  &.badge-info { background: var(--info-light); color: var(--info); }
+}
+
+// Vuesy Material Design Overrides
+::ng-deep {
+  .mat-mdc-card {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-primary) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  .mat-mdc-button:not(:disabled) {
+    color: var(--text-primary) !important;
+  }
+  
+  .mat-mdc-icon-button:not(:disabled) {
+    color: var(--text-secondary) !important;
+    
+    &:hover {
+      background-color: var(--bg-hover) !important;
+      color: var(--primary-600) !important;
+    }
+  }
+  
+  .mat-mdc-raised-button {
+    box-shadow: var(--shadow-sm) !important;
+    
+    &:hover {
+      box-shadow: var(--shadow-md) !important;
+    }
+  }
+  
+  .mat-mdc-menu-panel {
+    border: 1px solid var(--border-primary) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-xl) !important;
+  }
+}
+
+// Vuesy Scrollbar
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 3px;
+  
+  &:hover {
+    background: var(--primary-600);
+  }
+}
+
+// Responsive Design
+@media (max-width: 992px) {
+  .col-3, .col-4, .col-6, .col-8 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .row {
+    margin: 0 -8px;
+  }
+  
+  .col {
+    padding: 0 8px;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.375rem; }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --spacing-lg: 16px;
+    --spacing-xl: 24px;
+  }
+  
+  .card-header,
+  .card-body,
+  .card-footer {
+    padding: var(--spacing-md);
+  }
+  
+  .stats-card {
+    padding: var(--spacing-md);
+  }
+}
