@@ -1,0 +1,75 @@
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #3f51b5 0%, #2196f3 100%);
+}
+
+.menu-button {
+  margin-right: 16px;
+  
+  @media (max-width: 768px) {
+    margin-right: 8px;
+  }
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+    letter-spacing: 0.25px;
+  }
+  
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.user-menu-button {
+  margin-left: 8px;
+}
+
+// Notification badge styling
+::ng-deep .mat-badge-content {
+  background: #f44336 !important;
+  color: white !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+
+// Menu styling
+::ng-deep .mat-menu-panel {
+  min-width: 200px !important;
+  max-width: 280px !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 8px !important;
+  
+  .mat-menu-item {
+    height: 48px !important;
+    line-height: 48px !important;
+    font-size: 14px !important;
+    
+    .mat-icon {
+      margin-right: 16px !important;
+      color: rgba(0, 0, 0, 0.54) !important;
+    }
+    
+    &:hover {
+      background-color: rgba(63, 81, 181, 0.04) !important;
+      
+      .mat-icon {
+        color: #3f51b5 !important;
+      }
+    }
+  }
+} 

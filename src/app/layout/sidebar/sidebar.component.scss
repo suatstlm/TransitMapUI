@@ -1,0 +1,156 @@
+.sidebar-content {
+  height: 100%;
+  background: #fafafa;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  padding: 20px 16px;
+  background: linear-gradient(135deg, #3f51b5 0%, #2196f3 100%);
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+.brand-text {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.navigation-list {
+  flex: 1;
+  padding-top: 8px;
+  overflow-y: auto;
+  
+  .nav-item {
+    position: relative;
+    cursor: pointer;
+    margin: 2px 8px;
+    border-radius: 8px;
+    min-height: 48px !important;
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+      background-color: rgba(63, 81, 181, 0.04);
+      
+      .nav-icon {
+        color: #3f51b5;
+      }
+      
+      .nav-label {
+        color: #3f51b5;
+        font-weight: 500;
+      }
+    }
+    
+    &.active {
+      background-color: rgba(63, 81, 181, 0.08);
+      
+      .nav-icon {
+        color: #3f51b5;
+      }
+      
+      .nav-label {
+        color: #3f51b5;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.nav-icon {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.87);
+  transition: all 0.2s ease-in-out;
+  margin-left: 12px;
+}
+
+.active-indicator {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 24px;
+  background: #3f51b5;
+  border-radius: 2px 0 0 2px;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 16px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  text-align: center;
+}
+
+.version-text,
+.copyright-text {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+// Remove default Material list styles
+::ng-deep {
+  .mat-list-item-content {
+    padding: 0 16px !important;
+  }
+  
+  .mat-list-item {
+    height: auto !important;
+  }
+  
+  .mat-list-item-content-reverse {
+    padding: 0 16px !important;
+  }
+  
+  .mat-divider {
+    margin: 8px 0 !important;
+  }
+}
+
+// Responsive behavior
+@media (max-width: 768px) {
+  .sidebar-content {
+    width: 100%;
+  }
+  
+  .brand-text {
+    font-size: 16px;
+  }
+  
+  .nav-label {
+    font-size: 15px;
+  }
+} 

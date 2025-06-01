@@ -1,0 +1,79 @@
+.sidenav-container {
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.sidenav {
+  width: 280px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.content-wrapper {
+  flex: 1;
+  padding: 80px 24px 24px 24px; // Top padding for fixed header
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  
+  @media (max-width: 768px) {
+    padding: 80px 16px 16px 16px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 80px 12px 12px 12px;
+  }
+}
+
+// Override Material sidenav styles
+::ng-deep {
+  .mat-sidenav-container {
+    background-color: #f5f5f5 !important;
+  }
+  
+  .mat-sidenav-backdrop {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+  }
+  
+  .mat-sidenav {
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24) !important;
+  }
+}
+
+// Loading state styles
+.content-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+// Custom scrollbar for content area
+.content-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.content-wrapper::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+  
+  &:hover {
+    background: #a1a1a1;
+  }
+} 
