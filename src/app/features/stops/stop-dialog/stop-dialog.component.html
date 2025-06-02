@@ -1,0 +1,60 @@
+<div class="dialog-root">
+  <h2 class="dialog-title">{{ data ? 'Durağı Düzenle' : 'Yeni Durak Ekle' }}</h2>
+  <div class="dialog-desc">Durak bilgilerini girin ve haritadan konum seçin.</div>
+
+  <form [formGroup]="stopForm" (ngSubmit)="onSubmit()">
+    <div class="dialog-form-card">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Durak Adı</mat-label>
+        <input matInput formControlName="name" placeholder="Durak adı girin">
+        <mat-error *ngIf="stopForm.get('name')?.hasError('required')">
+          Durak adı zorunlu
+        </mat-error>
+      </mat-form-field>
+
+      <div class="coordinates-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Enlem</mat-label>
+          <input matInput formControlName="latitude" type="number" step="0.0001" placeholder="Enlem">
+          <mat-error *ngIf="stopForm.get('latitude')?.hasError('required')">
+            Enlem zorunlu
+          </mat-error>
+          <mat-error *ngIf="stopForm.get('latitude')?.hasError('min') || stopForm.get('latitude')?.hasError('max')">
+            Enlem -90 ile 90 arasında olmalı
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Boylam</mat-label>
+          <input matInput formControlName="longitude" type="number" step="0.0001" placeholder="Boylam">
+          <mat-error *ngIf="stopForm.get('longitude')?.hasError('required')">
+            Boylam zorunlu
+          </mat-error>
+          <mat-error *ngIf="stopForm.get('longitude')?.hasError('min') || stopForm.get('longitude')?.hasError('max')">
+            Boylam -180 ile 180 arasında olmalı
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="map-card">
+        <google-map
+          [options]="mapOptions"
+          (mapClick)="onMapClick($event)"
+          height="320px"
+          width="100%">
+          <map-marker
+            *ngIf="markerPosition"
+            [position]="markerPosition"
+            [options]="{ draggable: true }">
+          </map-marker>
+        </google-map>
+        <div class="map-hint">Haritadan konum seçmek için tıklayın</div>
+      </div>
+    </div>
+
+    <div class="dialog-actions">
+      <button mat-stroked-button type="button" (click)="onCancel()" class="cancel-btn">İptal</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!stopForm.valid" class="save-btn gradient-btn">
+        {{ data ? 'Kaydet' : 'Ekle' }}
+      </button>
+    </div>
+  </form> 

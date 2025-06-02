@@ -1,0 +1,146 @@
+<div class="dashboard-root">
+    <!-- Header -->
+    <div class="dashboard-header">
+      <div>
+        <h1 class="dashboard-title">TransitMapUI</h1>
+        <p class="dashboard-desc">Your daily transit control center. Minimal, focused, and modern.</p>
+      </div>
+      <div class="dashboard-date">{{ today | date:'fullDate' }}</div>
+    </div>
+
+    <div class="dashboard-main">
+      <!-- Summary Panel -->
+      <div class="summary-panel">
+        <div class="summary-section-title">Today</div>
+        <div class="summary-item">
+          <div class="summary-label">Passengers</div>
+          <div class="summary-value">2,659</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">Revenue</div>
+          <div class="summary-value">$1,596</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">Active Routes</div>
+          <div class="summary-value">197</div>
+        </div>
+        <div class="summary-section-title">This Week</div>
+        <div class="summary-item">
+          <div class="summary-label">Total Passengers</div>
+          <div class="summary-value">18,420</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">Total Revenue</div>
+          <div class="summary-value">$10,920</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">Trips</div>
+          <div class="summary-value">3,210</div>
+        </div>
+        <div class="mini-chart">
+          <div class="mini-chart-title">Trend</div>
+          <div class="mini-chart-placeholder">📈</div>
+        </div>
+      </div>
+
+      <!-- Focus Card: Day Summary -->
+      <div class="focus-card">
+        <div class="focus-title">Today's Highlights</div>
+        <div class="focus-content">
+          <div class="focus-summary-list">
+            <div class="focus-summary-item">
+              <mat-icon class="focus-summary-icon">trending_up</mat-icon>
+              <div>
+                <div class="focus-summary-label">Busiest Route</div>
+                <div class="focus-summary-value">Route 12</div>
+              </div>
+            </div>
+            <div class="focus-summary-item">
+              <mat-icon class="focus-summary-icon">place</mat-icon>
+              <div>
+                <div class="focus-summary-label">Top Stop</div>
+                <div class="focus-summary-value">Central Park</div>
+              </div>
+            </div>
+            <div class="focus-summary-item">
+              <mat-icon class="focus-summary-icon">access_time</mat-icon>
+              <div>
+                <div class="focus-summary-label">Avg. Wait</div>
+                <div class="focus-summary-value">4.2 min</div>
+              </div>
+            </div>
+          </div>
+          <div class="focus-progress">
+            <div class="focus-progress-label">On-Time Performance</div>
+            <div class="focus-progress-bar">
+              <div class="focus-progress-inner" style="width: 82%"></div>
+            </div>
+            <div class="focus-progress-value">82%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vertical Actions -->
+      <div class="actions-vertical">
+        <button mat-icon-button class="action-btn" matTooltip="Add Stop">
+          <mat-icon>add_location</mat-icon>
+        </button>
+        <button mat-icon-button class="action-btn" matTooltip="Add Route">
+          <mat-icon>alt_route</mat-icon>
+          <span class="action-badge">2</span>
+        </button>
+        <button mat-icon-button class="action-btn" matTooltip="Add Trip">
+          <mat-icon>directions_bus</mat-icon>
+        </button>
+        <button mat-icon-button class="action-btn" matTooltip="Service Calendar">
+          <mat-icon>event</mat-icon>
+          <span class="action-badge warning">!</span>
+        </button>
+        <button mat-icon-button class="action-btn" matTooltip="GTFS Export">
+          <mat-icon>cloud_download</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- Top-right Weather/Announcement -->
+    <div class="dashboard-extras">
+      <div class="weather-box">
+        <mat-icon class="weather-icon">wb_sunny</mat-icon>
+        <div class="weather-info">
+          <div class="weather-temp">23°C</div>
+          <div class="weather-desc">Sunny, Istanbul</div>
+        </div>
+      </div>
+      <div class="announcement-box">
+        <mat-icon class="announcement-icon">campaign</mat-icon>
+        <div class="announcement-content">
+          <div class="announcement-title">System Update</div>
+          <div class="announcement-desc">GTFS export module improved. <a href="#">Learn more</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Horizontal Widgets -->
+    <div class="widgets-row">
+      <div class="widget-card">
+        <div class="widget-title"><mat-icon class="widget-avatar">add_location</mat-icon> New Stop</div>
+        <div class="widget-value">Central Park</div>
+      </div>
+      <div class="widget-card">
+        <div class="widget-title"><mat-icon class="widget-avatar">cloud_download</mat-icon> Last Export</div>
+        <div class="widget-value">GTFS - 09:12</div>
+      </div>
+      <div class="widget-card">
+        <div class="widget-title"><mat-icon class="widget-avatar">directions_bus</mat-icon> Next Trip</div>
+        <div class="widget-value">10:45 - Route 12</div>
+      </div>
+      <div class="widget-card">
+        <div class="widget-title"><mat-icon class="widget-avatar warning">warning</mat-icon> Alerts</div>
+        <div class="widget-value">No active alerts</div>
+      </div>
+      <div class="widget-card">
+        <div class="widget-title"><img class="widget-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="avatar"/> New User</div>
+        <div class="widget-value">ayse.kaya</div>
+      </div>
+    </div>
+  </div>

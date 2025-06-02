@@ -19,7 +19,7 @@ const routes: Routes = [
       },
       {
         path: 'stops',
-        component: DashboardComponent // Temporary placeholder
+        loadChildren: () => import('./features/stops/stops.module').then(m => m.StopsModule)
       },
       {
         path: 'routes',
