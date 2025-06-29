@@ -1,0 +1,69 @@
+<div class="dialog-root" [ngClass]="{ fullscreen: isFullscreen }">
+  <div class="dialog-header-row">
+    <div>
+      <h2 class="dialog-title">{{ data ? 'Hatı Düzenle' : 'Yeni Hat Ekle' }}</h2>
+      <div class="dialog-desc">Hat bilgilerini girin ve ayarlarını yapın.</div>
+    </div>
+    <button mat-icon-button (click)="toggleFullscreen()">
+      <mat-icon>{{ isFullscreen ? 'close_fullscreen' : 'fullscreen' }}</mat-icon>
+    </button>
+  </div>
+
+  <form [formGroup]="routeForm" (ngSubmit)="onSubmit()">
+    <div class="dialog-form-card">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Kısa Ad</mat-label>
+        <input matInput formControlName="shortName" placeholder="Örn: 34, M2, T1">
+        <mat-error *ngIf="routeForm.get('shortName')?.hasError('required')">
+          Kısa ad zorunlu
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Uzun Ad</mat-label>
+        <input matInput formControlName="longName" placeholder="Örn: Zincirlikuyu - Avcılar">
+      </mat-form-field>
+
+      <div class="coordinates-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Hat Türü</mat-label>
+          <mat-select formControlName="routeType">
+            <mat-option *ngFor="let type of routeTypes" [value]="type.value">
+              {{type.label}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="routeForm.get('routeType')?.hasError('required')">
+            Hat türü zorunlu
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Ajans</mat-label>
+          <mat-select formControlName="agency">
+            <mat-option *ngFor="let agency of agencies" [value]="agency.value">
+              {{agency.label}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="routeForm.get('agency')?.hasError('required')">
+            Ajans zorunlu
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="info-card">
+        <mat-icon class="info-icon">info</mat-icon>
+        <div class="info-text">
+          <strong>Bilgi:</strong> Kısa ad genellikle otobüs numarası, metro hattı kodu (M1, M2) 
+          veya tramvay kodu (T1, T2) olarak kullanılır. Uzun ad ise güzergah bilgisini içerir.
+        </div>
+      </div>
+    </div>
+
+    <div class="dialog-actions">
+      <button mat-stroked-button type="button" (click)="onCancel()" class="cancel-btn">İptal</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!routeForm.valid" class="save-btn gradient-btn">
+        {{ data ? 'Kaydet' : 'Ekle' }}
+      </button>
+    </div>
+  </form>
+</div> 

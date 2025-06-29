@@ -23,7 +23,7 @@ const routes: Routes = [
       },
       {
         path: 'routes',
-        component: DashboardComponent // Temporary placeholder
+        loadChildren: () => import('./features/routes/routes.module').then(m => m.RoutesModule)
       },
       {
         path: 'trips',

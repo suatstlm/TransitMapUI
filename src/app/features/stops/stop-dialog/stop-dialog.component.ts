@@ -20,6 +20,8 @@ export class StopDialogComponent implements OnInit {
   };
   markerPosition: google.maps.LatLngLiteral | null = null;
 
+  isFullscreen = false;
+
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<StopDialogComponent>,
@@ -68,5 +70,9 @@ export class StopDialogComponent implements OnInit {
 
   onCancel(): void {
     this.dialogRef.close();
+  }
+
+  toggleFullscreen(): void {
+    this.isFullscreen = !this.isFullscreen;
   }
 } 
